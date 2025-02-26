@@ -24,6 +24,21 @@
 
 6.) git push -u origin master (master is branch name)
 
+Errors sometimes: 
+Sometimes I get:
+
+To https://github.com/SophiaGreenwalt/WiCS-Website.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/SophiaGreenwalt/WiCS-Website.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+For that I do:
+
+git pull --rebase origin master
+
 
 
 
