@@ -1,5 +1,5 @@
 
-Setup:
+**Setup:**
 
 1.) Download server and client files
 
@@ -10,7 +10,7 @@ Setup:
 
 
 
-Set Up Github:
+**Set Up Github:**
 
 1.) Start in wics-website server 
 
@@ -27,7 +27,7 @@ Set Up Github:
 
 
 
-Set Up backend:
+**Set Up backend:**
 
 1.) Go into terminal
 
