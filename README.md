@@ -8,6 +8,8 @@ Setup:
 3.) Now you can open them on terminal (see backend)
 
 
+
+
 Set Up Github:
 
 1.) Start in wics-website server 
@@ -21,6 +23,8 @@ Set Up Github:
 5.) CONNECT REPO IF NEEDED (first time): git remote add origin (URL)
 
 6.) git push -u origin master (master is branch name)
+
+
 
 
 Set Up backend:
