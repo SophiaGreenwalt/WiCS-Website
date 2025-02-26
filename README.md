@@ -46,7 +46,7 @@ git pull --rebase origin master
 
 1.) Go into terminal
 
-2.) cd into server
+2.) cd into wics-website and server
 
 3.) npm init -y (server)
 
