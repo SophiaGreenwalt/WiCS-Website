@@ -125,36 +125,48 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    <a href="#home" class="active" onclick="setActiveLink(this)">Home</a>
-    <a href="#resources" onclick="setActiveLink(this)">Resources</a>
-    <a href="#calendar" onclick="setActiveLink(this)">Calendar</a>
-    <a href="#membership" onclick="setActiveLink(this)">Membership</a>
-    <a href="#login" class="right" onclick="setActiveLink(this)">Log in</a>
+    <a href="#home" class="active" onclick="setActiveLink(this, 'homepage.html')">Home</a>
+    <a href="#resources" onclick="setActiveLink(this, 'resources.html')">Resources</a>
+    <a href="#calendar" onclick="setActiveLink(this, 'calendar.html')">Calendar</a>
+    <a href="#membership" onclick="setActiveLink(this, 'membership.html')">Membership</a>
+    <a href="#login" class="right" onclick="setActiveLink(this, 'login.html')">Log in</a>
   </div>
 
   <!-- Main Content -->
   <div class="row">
+    <!-- Side page -->
     <div class="side">
+      <h2>Announcements and Upcoming Events</h2>
+    </div>
+    <!-- Main page -->
+    <div class="main">
       <h2>About the Club</h2>
       <p>The Women in Computer Science Club is dedicated to helping all women in the computer science field succeed. We have bi-weekly meetings where we give an overview of upcoming events and open the floor for members to voice their opinions on what they want to see implemented in the near future. We host a variety of social and academic-oriented events such as Dine-and-Donate, Tech Bootcamps, Resume Workshop (Sponsored by the Career Development Center), and Guest Speakers from big companies in the area such as Vanguard and Vertex.</p>
-    </div>
-    <div class="main">
       <h2>Meet the Executive Board</h2>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>President</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>Vice President</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>Secretary</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>Treasurer</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+      <div id="executive-board">
+        <!-- Executive board members will be injected here -->
+      </div>
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(function() {
+          $.getJSON('./exec-board/roles.json', function(data) {
+            // Get each person and generate HTML for their profile
+            $.each(data.person, function(i, f) {
+              var profileHtml = `
+                <div>
+                  <p>${f.role}</p>
+                  <p>${f.name}</p>
+                  <p>${f.about}</p>
+                  <br>
+                </div>
+              `;
+              $('#executive-board').append(profileHtml);
+            });
+          });
+        });
+      </script>
       <br>
     </div>
   </div>
@@ -167,15 +179,19 @@
   </div>
 
   <script>
-    // Set active link on the navbar
-    function setActiveLink(link) {
+    // Set active link on the navbar and navigate to a new page
+    function setActiveLink(link, newPage) {
+      // Set the active class for the clicked link
       var links = document.querySelectorAll('.navbar a');
       links.forEach(function (item) {
         item.classList.remove('active');
       });
       link.classList.add('active');
+      
+      // Navigate to the new page
+      window.location.href = newPage;
     }
-  </script>
+  </script>  
 
 </body>
 </html>
