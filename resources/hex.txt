@@ -1,5 +1,0 @@
-This file contains the hex codes of colors used in the website.
-
-WiCS Logo:
-#6e3152
-#fbb3c3
