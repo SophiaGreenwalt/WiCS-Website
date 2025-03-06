@@ -52,6 +52,12 @@ git pull --rebase origin master
 
 4.) npm install express mongoose dotenv jsonwebtoken bcrypt cors @sendgrid/mail (depenencies)
 
+5.) npm install mongodb
+
+6.) npm i nodemon -b
+
+7.) nodemon index.js
+
 
 
 
