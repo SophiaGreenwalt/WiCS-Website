@@ -29,42 +29,6 @@
       font-size: 40px;
     }
 
-    /* Style the top navigation bar */
-    .navbar {
-      overflow: hidden;
-      background-color: #fbb3c3;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    /* Style the navigation bar links */
-    .navbar a {
-      float: left;
-      display: block;
-      color: #6e3152;
-      text-align: center;
-      padding: 14px 20px;
-      text-decoration: none;
-    }
-
-    /* Right-aligned link */
-    .navbar a.right {
-      float: right;
-    }
-
-    /* Change color on hover */
-    .navbar a:hover {
-      background-color: #c37490;
-      color: black;
-    }
-
-    /* Active link */
-    .navbar a.active {
-      background-color: #c37490;
-      color: black;
-    }
-
     /* Column container */
     .row {
       display: flex;
@@ -106,32 +70,26 @@
       }
     }
 
-    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other */
-    @media screen and (max-width: 400px) {
-      .navbar a {
-        float: none;
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <div class="header">
-    <h1>Women in Computer Science Club</h1>
-    <img src="../files/images/tWiCS.png" alt="WiCS Logo" style="width:150px;">
-    <p>West Chester University</p>
-  </div>
-
   <!-- Navbar -->
-  <div class="navbar">
-    <a href="#home" class="active" onclick="setActiveLink(this, 'homepage.html')">Home</a>
-    <a href="#resources" onclick="setActiveLink(this, 'resources.html')">Resources</a>
-    <a href="#calendar" onclick="setActiveLink(this, 'calendar.html')">Calendar</a>
-    <a href="#membership" onclick="setActiveLink(this, 'membership.html')">Membership</a>
-    <a href="#login" class="right" onclick="setActiveLink(this, 'login.html')">Log in</a>
-  </div>
+    <div id="navbar-container"></div>
+
+    <script>
+        // Function to load the navbar HTML file dynamically
+        function loadNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading navbar:', error));
+        }
+
+        // Load the navbar on page load
+        window.onload = loadNavbar;
+    </script>
 
   <!-- Main Content -->
   <div class="row">
