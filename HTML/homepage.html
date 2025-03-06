@@ -16,55 +16,6 @@
       margin: 0;
     }
 
-    /* Header */
-    .header {
-      padding: 80px;
-      text-align: center;
-      background: white;
-      color: #6e3152;
-    }
-
-    /* Increase the font size of the heading */
-    .header h1 {
-      font-size: 40px;
-    }
-
-    /* Style the top navigation bar */
-    .navbar {
-      overflow: hidden;
-      background-color: #fbb3c3;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    /* Style the navigation bar links */
-    .navbar a {
-      float: left;
-      display: block;
-      color: #6e3152;
-      text-align: center;
-      padding: 14px 20px;
-      text-decoration: none;
-    }
-
-    /* Right-aligned link */
-    .navbar a.right {
-      float: right;
-    }
-
-    /* Change color on hover */
-    .navbar a:hover {
-      background-color: #c37490;
-      color: black;
-    }
-
-    /* Active link */
-    .navbar a.active {
-      background-color: #c37490;
-      color: black;
-    }
-
     /* Column container */
     .row {
       display: flex;
@@ -74,21 +25,12 @@
     /* Sidebar/left column */
     .side {
       flex: 30%;
-      background-color: #f1f1f1;
       padding: 20px;
     }
 
     /* Main column */
     .main {
       flex: 70%;
-      background-color: white;
-      padding: 20px;
-    }
-
-    /* Fake image, just for this example */
-    .fakeimg {
-      background-color: #aaa;
-      width: 100%;
       padding: 20px;
     }
 
@@ -96,7 +38,6 @@
     .footer {
       padding: 20px;
       text-align: center;
-      background: #ddd;
     }
 
     /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other */
@@ -106,56 +47,96 @@
       }
     }
 
-    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other */
-    @media screen and (max-width: 400px) {
-      .navbar a {
-        float: none;
-        width: 100%;
-      }
+    .executive-profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px; /* Space between profiles */
+      padding: 10px;
     }
+    
+    .executive-image {
+      width: 80px; /* Adjust image size */
+      height: 80px; /* Adjust image size */
+      border-radius: 50%; /* Makes the image round */
+      margin-right: 20px; /* Space between image and text */
+    }
+    
+    .profile-text p {
+      margin: 5px 0; /* Space between paragraphs */
+    }
+    
+    /* Responsive Design: Stack the image and text on smaller screens */
+    @media (max-width: 768px) {
+      .executive-profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .executive-image {
+        margin-bottom: 20px; /* Space between the image and text when stacked */
+      }
+    }    
+
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <div class="header">
-    <h1>Women in Computer Science Club</h1>
-    <img src="../files/images/tWiCS.png" alt="WiCS Logo" style="width:150px;">
-    <p>West Chester University</p>
-  </div>
-
   <!-- Navbar -->
-  <div class="navbar">
-    <a href="#home" class="active" onclick="setActiveLink(this)">Home</a>
-    <a href="#resources" onclick="setActiveLink(this)">Resources</a>
-    <a href="#calendar" onclick="setActiveLink(this)">Calendar</a>
-    <a href="#membership" onclick="setActiveLink(this)">Membership</a>
-    <a href="#login" class="right" onclick="setActiveLink(this)">Log in</a>
-  </div>
+    <div id="navbar-container"></div>
+
+    <script>
+        // Function to load the navbar HTML file dynamically
+        function loadNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading navbar:', error));
+        }
+
+        // Load the navbar on page load
+        window.onload = loadNavbar;
+    </script>
 
   <!-- Main Content -->
   <div class="row">
+    <!-- Side page -->
     <div class="side">
+      <h2>Announcements and Upcoming Events</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <!-- Main page -->
+    <div class="main">
       <h2>About the Club</h2>
       <p>The Women in Computer Science Club is dedicated to helping all women in the computer science field succeed. We have bi-weekly meetings where we give an overview of upcoming events and open the floor for members to voice their opinions on what they want to see implemented in the near future. We host a variety of social and academic-oriented events such as Dine-and-Donate, Tech Bootcamps, Resume Workshop (Sponsored by the Career Development Center), and Guest Speakers from big companies in the area such as Vanguard and Vertex.</p>
-    </div>
-    <div class="main">
+      <br>
       <h2>Meet the Executive Board</h2>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>President</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>Vice President</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>Secretary</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <div class="fakeimg" style="height:60px;">Image</div>
-      <p>Treasurer</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+      <div id="executive-board">
+        <!-- Executive board members will be injected here -->
+      </div>
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(function() {
+          $.getJSON('roles.json', function(data) {
+            // Get each person and generate HTML for their profile
+            $.each(data.person, function(i, f) {
+              var profileHtml = `
+                <div class="executive-profile">
+                  <img src="${f.image}" class="executive-image">
+                  <div class="profile-text">
+                    <p>${f.role}</p>
+                    <p>${f.name}</p>
+                    <p>${f.about}</p>
+                  </div>
+                </div>
+              `;
+              $('#executive-board').append(profileHtml);
+            });
+          });
+        });
+      </script>
       <br>
     </div>
   </div>
@@ -166,17 +147,5 @@
       <p>© 2025 Women in Computer Science Club. All rights reserved.</p>
     </footer>  
   </div>
-
-  <script>
-    // Set active link on the navbar
-    function setActiveLink(link) {
-      var links = document.querySelectorAll('.navbar a');
-      links.forEach(function (item) {
-        item.classList.remove('active');
-      });
-      link.classList.add('active');
-    }
-  </script>
-
 </body>
 </html>
