@@ -19,10 +19,11 @@ li, a, button{
 }
 
 header{
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
+    position: sticky;
 }
 
 .logo{
