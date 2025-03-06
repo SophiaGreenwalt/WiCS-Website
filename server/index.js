@@ -38,7 +38,7 @@ app.use('/api/contact', contactRoutes);
 
 //Testing for connection 
 app.get('/', (req, res) => {
-  res.send("Welcome!");
+  res.send("Welcome to WiCs!");
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
