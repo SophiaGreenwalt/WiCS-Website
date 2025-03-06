@@ -16,19 +16,6 @@
       margin: 0;
     }
 
-    /* Header */
-    .header {
-      padding: 80px;
-      text-align: center;
-      background: white;
-      color: #6e3152;
-    }
-
-    /* Increase the font size of the heading */
-    .header h1 {
-      font-size: 40px;
-    }
-
     /* Column container */
     .row {
       display: flex;
@@ -38,20 +25,17 @@
     /* Sidebar/left column */
     .side {
       flex: 30%;
-      background-color: #f1f1f1;
       padding: 20px;
     }
 
     /* Main column */
     .main {
       flex: 70%;
-      background-color: white;
       padding: 20px;
     }
 
     /* Fake image, just for this example */
     .fakeimg {
-      background-color: #aaa;
       width: 100%;
       padding: 20px;
     }
@@ -60,7 +44,6 @@
     .footer {
       padding: 20px;
       text-align: center;
-      background: #ddd;
     }
 
     /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other */
@@ -69,6 +52,36 @@
         flex-direction: column;
       }
     }
+
+    .executive-profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px; /* Space between profiles */
+      padding: 10px;
+    }
+    
+    .executive-image {
+      width: 80px; /* Adjust image size */
+      height: 80px; /* Adjust image size */
+      border-radius: 50%; /* Makes the image round */
+      margin-right: 20px; /* Space between image and text */
+    }
+    
+    .profile-text p {
+      margin: 5px 0; /* Space between paragraphs */
+    }
+    
+    /* Responsive Design: Stack the image and text on smaller screens */
+    @media (max-width: 768px) {
+      .executive-profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .executive-image {
+        margin-bottom: 20px; /* Space between the image and text when stacked */
+      }
+    }    
 
   </style>
 </head>
@@ -96,11 +109,13 @@
     <!-- Side page -->
     <div class="side">
       <h2>Announcements and Upcoming Events</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <!-- Main page -->
     <div class="main">
       <h2>About the Club</h2>
       <p>The Women in Computer Science Club is dedicated to helping all women in the computer science field succeed. We have bi-weekly meetings where we give an overview of upcoming events and open the floor for members to voice their opinions on what they want to see implemented in the near future. We host a variety of social and academic-oriented events such as Dine-and-Donate, Tech Bootcamps, Resume Workshop (Sponsored by the Career Development Center), and Guest Speakers from big companies in the area such as Vanguard and Vertex.</p>
+      <br>
       <h2>Meet the Executive Board</h2>
 
       <div id="executive-board">
@@ -110,15 +125,17 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
         $(function() {
-          $.getJSON('./exec-board/roles.json', function(data) {
+          $.getJSON('roles.json', function(data) {
             // Get each person and generate HTML for their profile
             $.each(data.person, function(i, f) {
               var profileHtml = `
-                <div>
-                  <p>${f.role}</p>
-                  <p>${f.name}</p>
-                  <p>${f.about}</p>
-                  <br>
+                <div class="executive-profile">
+                  <img src="${f.image}" class="executive-image">
+                  <div class="profile-text">
+                    <p>${f.role}</p>
+                    <p>${f.name}</p>
+                    <p>${f.about}</p>
+                  </div>
                 </div>
               `;
               $('#executive-board').append(profileHtml);
