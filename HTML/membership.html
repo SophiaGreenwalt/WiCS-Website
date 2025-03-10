@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="stylenavbar.css">
+</head>
+<body>
+    <!-- Container for Navbar -->
+    <div id="navbar-container"></div>
+
+    <script>
+        // Function to load the navbar HTML file dynamically
+        function loadNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading navbar:', error));
+        }
+
+        // Load the navbar on page load
+        window.onload = loadNavbar;
+    </script>
+
+    <!-- Main Content -->
