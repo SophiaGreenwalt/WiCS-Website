@@ -2,7 +2,9 @@
 place holder for styling the resources page :) 
 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
- 
+ /* 
+Header format
+*/
 .header{
     padding: 50px 10%;
     text-align: center;
@@ -13,7 +15,9 @@ place holder for styling the resources page :)
     font-family: "Montserrat", sans-serif;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
-
+/* 
+Specifc sizing format
+*/
 .header h1{
     font-size: 2.5rem;
     font-weight: 700;
@@ -23,6 +27,9 @@ place holder for styling the resources page :)
     font-size: 1.2rem;
     font-weight: 500;
 }
+/* 
+Image formatting 
+*/
 .image1, .image2{
     position: absolute;
     width: 275px;
@@ -37,4 +44,16 @@ place holder for styling the resources page :)
 
 .image2{
    right: 15%;
+}
+/* 
+First area of Resource Page: 
+*/
+
+.part1{
+
+}
+
+.image3, .image4{
+    width: 120px;
+    
 }
