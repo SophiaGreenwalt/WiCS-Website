@@ -7,14 +7,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #6e3152;
 }
+
+body{
+    background-color: #ffffff;
+}
+
 
 li, a, button{
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
-    color:#ecf0f1;
+    color:#6e3152;
     text-decoration: none;
 }
 
@@ -23,7 +27,6 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    position: sticky;
 }
 
 .logo{
@@ -55,6 +58,7 @@ button {
     border-radius: 50px;
     cursor:pointer;
     transition: all 0.3s ease 0s;
+    color: #ffffff;
 }
 
 button:hover{

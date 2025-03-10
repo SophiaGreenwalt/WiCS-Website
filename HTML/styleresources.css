@@ -1,3 +1,17 @@
 /*
 place holder for styling the resources page :) 
 */
+.header{
+    padding: 80px;
+    text-align: center;
+    background: #c37490;
+    color: white; 
+}
+
+.fun{
+    float: left;
+}
+
+.fun2{
+    float: right; 
+}
