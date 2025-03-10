@@ -4,31 +4,31 @@
         "role": "President",
         "name": "River Gennaria",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "profile"
+        "image": "../images/profile"
       },
       {
         "role": "Vice President",
         "name": "Olivia Tarsillo",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "profile"
+        "image": "../images/profile"
       },
       {
         "role": "Secretary",
         "name": "Sophia Greenwalt",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "profile"
+        "image": "../images/profile"
       },
       {
         "role": "Treasurer",
         "name": "Ayza Syed",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "profile"
+        "image": "../images/profile"
       },
       {
         "role": "Website Manager",
         "name": "TBD",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "profile"
+        "image": "../images/profile"
       }
     ]
   }
