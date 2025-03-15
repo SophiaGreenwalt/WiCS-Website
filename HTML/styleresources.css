@@ -73,8 +73,7 @@
     width: 125px;
 }
 
-/* Second Area: Campus Resources */
-
+/* Second Area: Campus Resources... */
 .title2{
     font-family: "Barlow Condensed", sans-serif;
     font-style: normal;
@@ -88,7 +87,6 @@
 }
 
 /* Campus Resources Container */
-
 .crcontainer3 {
     display: flex;
     flex-direction: column;
@@ -103,13 +101,13 @@
     justify-content: flex-start;
     gap: 50px; 
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .text-content {
     max-width: 800px;
     text-align: left;
     font-family: "Montserrat", sans-serif;
-
 }
 
 .text-content h3{
@@ -125,12 +123,20 @@
     height: auto;
     object-fit: contain;
     border-radius: 25px;
-    
 }
 
-.img6{
-    width: 300px;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 25px;
+/* Third Area: External Resources...*/
+
+.ercontainer4 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin-left: 320px;
 }
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+  }
