@@ -2,7 +2,7 @@
 place holder for styling the resources page :) 
 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
- /* 
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');/* 
 Header format
 */
 .header{
@@ -26,6 +26,7 @@ Specifc sizing format
 .header p{
     font-size: 1.2rem;
     font-weight: 500;
+    font-family: "Montserrat", sans-serif;
 }
 /* 
 Image formatting 
@@ -49,11 +50,31 @@ Image formatting
 First area of Resource Page: 
 */
 
-.part1{
-
+.title1{
+    font-family: "Barlow Condensed", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #494c4c;
+    padding: 30px;
+    padding-left: 450px;
 }
 
-.image3, .image4{
+.imgcontainer2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image3{
+    border-radius: 25px;
+    width: 115px;
+}
+
+.image4{
     width: 120px;
-    
 }
+
+/*
+Second Area of Resources Page: 
+*/
