@@ -19,7 +19,7 @@ Header format
 Specifc sizing format
 */
 .header h1{
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 
@@ -54,10 +54,10 @@ First area of Resource Page:
     font-family: "Barlow Condensed", sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: #494c4c;
     padding: 30px;
-    padding-left: 450px;
+    padding-left: 320px;
 }
 
 .imgcontainer2{
@@ -68,11 +68,11 @@ First area of Resource Page:
 
 .image3{
     border-radius: 25px;
-    width: 115px;
+    width: 120px;
 }
 
 .image4{
-    width: 120px;
+    width: 125px;
 }
 
 /*
@@ -83,13 +83,63 @@ Second Area of Resources Page:
     font-family: "Barlow Condensed", sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: #494c4c;
     padding: 30px;
-    padding-left: 450px;
+    padding-left: 320px;
 }
 
-.imgcontainer3{
-    display: block;
+/*
+.crcontainer3{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+} 
+
+.text-content{
+    max-width: 300px;
+    text-align: left;
+    padding-left: 500px;
+    float: left;
+}
+.text-content h3{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
 }
 
+.text-content p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+}
+
+.img5{
+    width: 300px;
+    border-radius: 25px;
+    margin-left: 450px;
+    float: left;
+}
+*/ 
+
+.crcontainer3 {
+    display: flex;
+    flex-direction: column; /* Stack content blocks */
+    align-items: center;
+    gap: 40px; /* Space between content blocks */
+}
+
+.content-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* Space between text and image */
+}
+
+.text-content {
+    max-width: 300px;
+    text-align: left;
+}
+
+.img5 {
+    width: 300px;
+    border-radius: 25px;
+}
