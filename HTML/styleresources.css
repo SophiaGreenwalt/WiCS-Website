@@ -78,3 +78,18 @@ First area of Resource Page:
 /*
 Second Area of Resources Page: 
 */
+
+.title2{
+    font-family: "Barlow Condensed", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #494c4c;
+    padding: 30px;
+    padding-left: 450px;
+}
+
+.imgcontainer3{
+    display: block;
+}
+
