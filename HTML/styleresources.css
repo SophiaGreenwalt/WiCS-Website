@@ -122,6 +122,15 @@
 
 .img5 {
     width: 300px;
+    height: auto;
+    object-fit: contain;
     border-radius: 25px;
+    
 }
 
+.img6{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 25px;
+}
