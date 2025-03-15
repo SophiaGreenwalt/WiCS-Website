@@ -18,7 +18,7 @@
     align-items: center;
     font-family: "Montserrat", sans-serif;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    flex-wrap: wrap; /* Allows the elements to wrap when necessary */
+    flex-wrap: wrap; 
 }
 
 /* Header format */
@@ -33,23 +33,23 @@
     align-items: center;
     font-family: "Montserrat", sans-serif;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    flex-wrap: wrap; /* Allows wrapping of elements when necessary */
+    flex-wrap: wrap; 
 }
 
 /* Wrapper for content */
 .header-content {
     display: flex;
-    justify-content: space-between; /* Ensure space between the images and text */
+    justify-content: space-between; 
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Limit the width of the content */
+    max-width: 1200px; 
 }
 
 /* Image formatting */
 .image1, .image2 {
-    width: 275px; /* Adjust image width */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 20px; /* Space between images and text */
+    width: 275px; 
+    height: auto; 
+    margin: 0 20px; 
 }
 
 .image1 {
