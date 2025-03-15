@@ -8,21 +8,12 @@
 </head>
 <body>
     <!-- Container for Navbar -->
-    <div id="navbar-container"></div>
-
-    <script>
-        // Function to load the navbar HTML file dynamically
-        function loadNavbar() {
-            fetch('navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading navbar:', error));
-        }
-
-        // Load the navbar on page load
-        window.onload = loadNavbar;
-    </script>
+    <script id="replace_with_navbar" src="nav.js"></script>
 
     <!-- Main Content -->
+    <h2>Club Connections</h2>
+    <p>Make connections with other members of the club, whether that is a professional connection or a friendship! These connections you make now can make a huge impact on your college career and even give you access to more resources!</p>
+    <br>
+    <h2>Membership Bylaws</h2>
+    <br>
+    <h2>How to Become a Member</h2>

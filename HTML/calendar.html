@@ -8,21 +8,11 @@
 </head>
 <body>
     <!-- Container for Navbar -->
-    <div id="navbar-container"></div>
-
-    <script>
-        // Function to load the navbar HTML file dynamically
-        function loadNavbar() {
-            fetch('navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading navbar:', error));
-        }
-
-        // Load the navbar on page load
-        window.onload = loadNavbar;
-    </script>
-
+    <script id="replace_with_navbar" src="nav.js"></script>
     <!-- Main Content -->
+    <!-- EMBED CALENDAR HERE -->
+    <h2>Events & Activities</h2>
+    <p>We host a handful of events each semester. Our most popular ones are our Bootcamps. We host Bootcamps on a variety of subjects, our most recent being Python, lead by Professor Ngo. We also send members to the Grace Hopper Celebration each year! </p>
+
+</body>
+</html>
