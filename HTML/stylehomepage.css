@@ -57,6 +57,7 @@
 
   .announcements {
     background: #f0f0f0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .image_megaphone{
@@ -75,6 +76,7 @@
 
   .upcoming-events {
     background: #f0f0f0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .image_calendar{
