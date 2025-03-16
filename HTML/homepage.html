@@ -11,55 +11,108 @@
   <script id="replace_with_navbar" src="nav.js"></script>
   <!-- Main Content -->
   <div class="header">
-    <div class="header-content">
-      <div>
+
+      <div class="left-butterfly">
+        <img src="../images/Binbutterfly-left.png" class="image_butterfly_left" alt="Left Butterfly">
+      </div>
+
+      <div class="header-text">
         <h1>Women in Computer Science Club</h1>
         <h2>West Chester University of Pennsylvania</h2>
       </div>
-    </div>
+
+      <div class="right-butterfly">
+        <img src="../images/Binbutterfly-right.png" class="image_butterfly_right" alt="Right Butterfly">
+      </div>
+
+      </div>
+
   </div>
+
   <div class="row">
     <!-- Side page -->
     <div class="side">
-      <h2>Announcements</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+
+      <div class="announcements">
+
+        <div class="megaphone">
+          <img src="../images/megaphone.png" class="image_megaphone" alt="Megaphone">
+        </div>
+
+        <div class="announce-head">
+          <h2>Announcements</h2>
+        </div>
+
+        <div class="announce-text">
+          <p>This is where announcements for the club will be posted.</p>
+          <br>
+        </div>
+
+      </div>
+
       <br>
-      <h2>Upcoming Events</h2>
+
+      <div class="upcoming-events">
+        <div class="calendar-icon">
+          <img src="../images/calendar-icon.png" class="image_calendar" alt="Calendar">
+        </div>
+
+        <div class="event-head">
+          <h2>Upcoming Events</h2>
+        </div>
+
+        <div class="event-text">
+          <p>Here's some events that will be happening soon!</p>
+        </div>
+  
+      </div>
+
     </div>
     <!-- Main page -->
     <div class="main">
-      <h2>About the Club</h2>
-      <p>The Women in Computer Science Club is dedicated to helping all women in the computer science field succeed. We have bi-weekly meetings where we give an overview of upcoming events and open the floor for members to voice their opinions on what they want to see implemented in the near future. We host a variety of social and academic-oriented events such as Dine-and-Donate, Tech Bootcamps, Resume Workshop (Sponsored by the Career Development Center), and Guest Speakers from big companies in the area such as Vanguard and Vertex. If this sounds like a club that you are interested in joining, read more below or click the Sign Up button to join our website! </p>
+
+      <div class="about-head">
+        <h2>About the Club</h2>
+      </div>
       <br>
+
+      <div class="about-text">
+        <p>The Women in Computer Science Club is dedicated to helping all women in the computer science field succeed. We have bi-weekly meetings where we give an overview of upcoming events and open the floor for members to voice their opinions on what they want to see implemented in the near future. We host a variety of social and academic-oriented events such as Dine-and-Donate, Tech Bootcamps, Resume Workshop (Sponsored by the Career Development Center), and Guest Speakers from big companies in the area such as Vanguard and Vertex. If this sounds like a club that you are interested in joining, read more below or click the Sign Up button to join our website! </p>
+        <br>
+      </div>
+
+      <div class="exec-head">
       <h2>Meet the Executive Board</h2>
+      </div>
 
       <div id="executive-board">
         <!-- Executive board members will be injected here -->
-      </div>
-    
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script>
-        $(function() {
-          $.getJSON('roles.json', function(data) {
-            // Get each person and generate HTML for their profile
-            $.each(data.person, function(i, f) {
-              var profileHtml = `
-                <div class="executive-profile">
-                  <img src="${f.image}" class="executive-image">
-                  <div class="profile-text">
-                    <p>${f.role}</p>
-                    <p>${f.name}</p>
-                    <p>${f.about}</p>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          $(function() {
+            $.getJSON('roles.json', function(data) {
+              // Get each person and generate HTML for their profile
+              $.each(data.person, function(i, f) {
+                var profileHtml = `
+                  <div class="executive-profile">
+                    <img src="${f.image}" class="executive-image">
+                    <div class="profile-text">
+                      <p>${f.role} <br>
+                      ${f.name} <br>
+                      ${f.about}</p>
+                    </div>
                   </div>
-                </div>
-              `;
-              $('#executive-board').append(profileHtml);
+                `;
+                $('#executive-board').append(profileHtml);
+              });
             });
           });
-        });
-      </script>
-      <br>
+        </script>
+        <br>
+      </div>
     </div>
+
   </div>
 
   <!-- Footer -->
@@ -68,5 +121,6 @@
       <p>© 2025 Women in Computer Science Club. All rights reserved.</p>
     </footer>  
   </div>
+
 </body>
 </html>

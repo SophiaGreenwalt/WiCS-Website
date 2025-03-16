@@ -1,11 +1,14 @@
 This file contains the hex codes of colors used in the website.
 
 WiCS Logo:
-   color    |   hex    |
-------------------------
-  dark pink | #6e3152  |
-  med pink  | #c37490  |
- light pink | #fbb3c3  |
+   color     |     hex      |
+-----------------------------
+  dark pink  | #6e3152  |
+  med pink   | #c37490  |
+ light pink  | #fbb3c3  |
+
+ purple gray | #e0d7e5  |
+ neutral gray| #f0f0f0  |
 
 
 Text Fonts: 

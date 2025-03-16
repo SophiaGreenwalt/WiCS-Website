@@ -10,3 +10,9 @@ All notable changes to this project will be documented in this file.
 - Added WiCS logo MM
 - Added exec-board JSON MM
 - Added hex codes text file MM
+
+## Style-Homepage - 2025-03-16
+
+### Added
+
+- CSS for homepage
