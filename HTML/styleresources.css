@@ -2,13 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-<<<<<<< HEAD
-
-
-/* Header format */
-.header {
-    padding: 50px 0;
-=======
 /* Global */
 *{
     box-sizing: border-box;
@@ -19,7 +12,6 @@
 /* Header format */
 .header {
     padding: 50px 10%;
->>>>>>> 0eb28afca8137891f682c818f733071e4eb54489
     text-align: center;
     background: #c37490;
     color: white;
@@ -42,12 +34,8 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
-<<<<<<< HEAD
-    padding: 0 10%;
-=======
     width: 100%;
     max-width: 1200px; 
->>>>>>> 0eb28afca8137891f682c818f733071e4eb54489
 }
 
 /* Image formatting */
