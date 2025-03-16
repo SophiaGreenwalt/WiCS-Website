@@ -2,48 +2,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Header format */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
 
-.header{
+/* Header format */
+.header {
     padding: 50px 10%;
     text-align: center;
     background: #c37490;
-    color: white; 
-    position: relative;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Flexbox for centering content vertically and horizontally */
+    display: flex;
     justify-content: center;
-    font-family: "Montserrat", sans-serif;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    align-items: center;
+    
+    height: 35vh; 
+    min-height: 35vh; 
+    width: 100%;
+    flex-direction: column; /* Stack items vertically */
 }
 
-/* Specifc sizing format */
-
-.header h1{
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-.header p{
-    font-size: 1.2rem;
-    font-weight: 500;
-    font-family: "Montserrat", sans-serif;
+/* Wrapper for content */
+.header-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
 }
 
 /* Image formatting */
-
-.image1, .image2{
-    position: absolute;
-    width: 275px;
-    top: 50%;
-    transform: translateY(-50%);
+.image1, .image2 {
+    width: 275px; 
+    height: auto; 
+    margin: 0 20px; 
 }
 
-.image1{
-    left: 15%;
-    transform: translateY(-50%) scaleX(-1)
+.image1 {
+    transform: scaleX(-1); /* Flip the first image */
 }
 
-.image2{
-   right: 15%;
+/* Text Formatting */
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.header p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    max-width: 600px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 40px 5%; /* Adjust padding for smaller screens */
+    }
+
+    .header-content {
+        flex-direction: column; /* Stack the content vertically */
+        text-align: center; /* Center text and images */
+    }
+
+    .image1, .image2 {
+        width: 200px; /* Reduce image size on smaller screens */
+        margin-bottom: 20px; /* Space between images and text */
+    }
+
+    .header h1 {
+        font-size: 2.5rem; /* Adjust heading size for smaller screens */
+    }
+
+    .header p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
 }
 
 /* First area of Resource Page: Getting Started...*/
@@ -91,6 +135,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-wrap: wrap;
     width: 80%;
     margin-left: 320px;
 }
