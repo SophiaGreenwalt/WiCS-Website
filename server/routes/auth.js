@@ -1,47 +1,77 @@
-const express = require('express');
-const router = express.Router();
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-//imports user from model 
-const User = require('../models/User');
+import { Router } from 'express';
+const router = Router();
+import { sign } from 'jsonwebtoken';
+import { genSalt, hash, compare } from 'bcrypt';
+import { randomInt } from 'crypto';
+import { setApiKey, send } from '@sendgrid/mail';
+import User from '../models/User';
 
-//ONLY WCU EMAILS 
+// Set SendGrid API key 
+setApiKey(process.env.SENDGRID_API_KEY);
+
+async function sendVerificationEmail(email, code) {
+  const msg = {
+    to: email,
+    from: 'your_verified_sender@example.com', // Replace with your verified sender email
+    subject: 'Your Email Verification Code',
+    text: `Your verification code is ${code}. Please enter this code to verify your email address.`,
+    html: `<p>Your verification code is <strong>${code}</strong>. Please enter this code on our website to verify your email address.</p>`,
+  };
+  await send(msg);
+}
+
+// checks email domain, hashes password, generates a verification code, sends email
 router.post('/register', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        if (!email.endsWith('wcupa.edu')) {
-            return res.status(400).json({message: "You must use a WCU email. "});
-        }
-        //generate salt and hash the password for storage 
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-        //new user
-        const newUser = new User({ email, password: hashedPassword});
-        //save user in database
-        await newUser.save();
-        res.status(201).json({message: "User confirmed."});
-    }catch {
-        res.status(500).json({ error: error.message});
+  try {
+    const { email, password } = req.body;
+    if (!email.endsWith('@wcupa.edu')) {
+      return res.status(400).json({ message: "Please use your WCU email address." });
     }
+    const salt = await genSalt(10);
+    const hashedPassword = await hash(password, salt);
+    
+    // Generate a 6-digit verification code
+    const verificationCode = randomInt(100000, 999999).toString();
+    
+    const newUser = new User({ 
+      email, 
+      password: hashedPassword, 
+      verificationCode,
+      isVerified: false 
+    });
+    
+    await newUser.save();
+    
+    // Send verf using sendgrid
+    await sendVerificationEmail(email, verificationCode);
+    
+    res.status(201).json({ message: "User registered successfully. Please check your email for a verification code." });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
-//login
+// Login endpoint
 router.post('/login', async (req, res) => {
-    try {
-        const { email, password} = req.body;
-        //find user
-        const user = await User.findOne({email});
-        if (!user) return res.status(400).json({message: "Invalid Credentials."});
-        //comparing password and username
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(400).json({message: "Invalid Credentials."});
-        //create payload and say yes by using JWT key
-        const payload = {id: user._id, email: user.email};
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '1h'});
-        //return token
-        res.json({ token });
-    }catch (error) {
-        res.status(500).json({error: error.message});
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: "Invalid credentials." });
+    
+    if (!user.isVerified) {
+      return res.status(400).json({ message: "Email not verified. Please verify your email before logging in." });
     }
+    
+    const isMatch = await compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: "Invalid credentials." });
+    
+    const payload = { id: user._id, email: user.email };
+    const token = sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+    
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
-module.exports = router;
+
+export default router;
