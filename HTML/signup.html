@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
+    <link rel="stylesheet" href="stylesignup.css">
 </head>
 <body>
     <!-- Navbar -->
   <script id="replace_with_navbar" src="nav.js"></script>
 
     <!-- Main Content -->
-    <h2>Sign Up</h2>
+    <form action="action_page.php" method="post">
+
+        <div class="explain">
+            <p>In order to view the calendar, you must register </p>
+        </div>
+      
+        <div class="container">
+          <label for="uname"><b>WCU Email</b></label>
+          <input type="text" placeholder="Enter WCU Email" name="uname" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit">Sign up</button>
+          <button type="button" class="cancelbtn">Cancel</button>
+          
+        </div>
+      </form> 
+
+<!-- Footer -->
+<div class="footer">
+    <footer>
+      <p>© 2025 Women in Computer Science Club. All rights reserved.</p>
+    </footer>  
+  </div>
+
 </body>
+</html>
