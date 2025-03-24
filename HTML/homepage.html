@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page Title</title>
-  <link rel="stylesheet" href="stylehomepage.css">
+  <link rel="stylesheet" href="./style/stylehomepage.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -48,7 +48,7 @@
           <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
           <script>
             $(function() {
-              $.getJSON('../JSON/announce.json', function(data) {
+              $.getJSON('./JSON/announce.json', function(data) {
                 // Get each announcement and generate HTML
                 $.each(data.announcement, function(i, f) {
                   var announceHtml = `
@@ -108,7 +108,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
           $(function() {
-            $.getJSON('../JSON/roles.json', function(data) {
+            $.getJSON('./JSON/roles.json', function(data) {
               // Get each person and generate HTML for their profile
               $.each(data.person, function(i, f) {
                 var profileHtml = `
