@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
-    <link rel="stylesheet" href="stylenavbar.css">
+    <link rel="stylesheet" href="stylelogin.css">
 </head>
 <body>
-    <!-- Container for Navbar -->
-    <script id="replace_with_navbar" src="nav.js"></script>
+    <!-- Navbar -->
+  <script id="replace_with_navbar" src="nav.js"></script>
+
     <!-- Main Content -->
+    <form action="action_page.php" method="post">
+      
+        <div class="container">
+          <label for="uname"><b>WCU Email</b></label>
+          <input type="text" placeholder="Enter WCU Email" name="uname" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit">Login</button>
+          
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <span class="psw"><a href="#">Forgot password? </a></span>
+            <span class="su"><a href="signup.html">Sign up</a> if it's your first time </span>
+          </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+        </div>
+      </form> 
 
 </body>
 </html>
