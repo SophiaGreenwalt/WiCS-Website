@@ -1,44 +1,43 @@
-//install express, mongoose, and cors 
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import dotenv from 'dotenv';
+dotenv.config();
 
-// future route files
-const authRoutes = require('./routes/auth');
-const eventRoutes = require('./routes/events');
-const memberRoutes = require('./routes/members');
-const discordRoutes = require('./routes/discord');
-const contactRoutes = require('./routes/contact');
-//create express server
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+// Import route files
+import authRoutes from './routes/auth.js';
+import verifyRoutes from './routes/verify.js';
+import googleCalendarRoutes from './routes/googlecalendar.js';
+import memberRoutes from './routes/members.js';
+import discordRoutes from './routes/discord.js';
+import contactRoutes from './routes/contact.js';
+
 const app = express();
-//set port and if fails fall back on 3000
 const PORT = process.env.PORT || 3000;
 
-// resource sharing to frontend 
+// Middleware
 app.use(cors());
-//parsing json 
 app.use(express.json());
 
-// Host connection to MongoDB Atlas in .env
+// Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log("MongoDB connected"))
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to database!"))
   .catch(err => console.error("MongoDB connection error:", err));
 
-//API 
+// Mount routes
 app.use('/api/auth', authRoutes);
-app.use('/api/events', eventRoutes);
+app.use('/api/verify', verifyRoutes);
+app.use('/api/google-calendar', googleCalendarRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/discord', discordRoutes);
 app.use('/api/contact', contactRoutes);
 
-//Testing for connection 
+// Test route
 app.get('/', (req, res) => {
-  res.send("Welcome to WiCs!");
+  res.send("Welcome to the WiCS Club API!");
 });
 
+// Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,8 +1,7 @@
 
 import { Router } from 'express';
+import authMiddleware from '../middleware/auth.js';
 const router = Router();
-import authMiddleware from '../middleware/auth';
-
 //gets google cal api
 router.get('/', authMiddleware, (req, res) => {
   //calendar url

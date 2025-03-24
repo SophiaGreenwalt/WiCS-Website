@@ -1,51 +1,46 @@
 import { Router } from 'express';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import crypto from 'crypto';
+import sgMail from '@sendgrid/mail';
+import User from '../models/User.js';
+
 const router = Router();
-import { sign } from 'jsonwebtoken';
-import { genSalt, hash, compare } from 'bcrypt';
-import { randomInt } from 'crypto';
-import { setApiKey, send } from '@sendgrid/mail';
-import User from '../models/User';
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// Set SendGrid API key 
-setApiKey(process.env.SENDGRID_API_KEY);
-
+// verification email using SendGrid
 async function sendVerificationEmail(email, code) {
   const msg = {
     to: email,
-    from: 'your_verified_sender@example.com', // Replace with your verified sender email
+    from: 'your_verified_sender@example.com', // Replace with verified sender
     subject: 'Your Email Verification Code',
-    text: `Your verification code is ${code}. Please enter this code to verify your email address.`,
-    html: `<p>Your verification code is <strong>${code}</strong>. Please enter this code on our website to verify your email address.</p>`,
+    text: `Your verification code is ${code}.`,
+    html: `<p>Your verification code is <strong>${code}</strong>.</p>`
   };
-  await send(msg);
+  await sgMail.send(msg);
 }
 
-// checks email domain, hashes password, generates a verification code, sends email
+// Registration endpoint
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email.endsWith('@wcupa.edu')) {
       return res.status(400).json({ message: "Please use your WCU email address." });
     }
-    const salt = await genSalt(10);
-    const hashedPassword = await hash(password, salt);
-    
-    // Generate a 6-digit verification code
-    const verificationCode = randomInt(100000, 999999).toString();
-    
-    const newUser = new User({ 
-      email, 
-      password: hashedPassword, 
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    const verificationCode = crypto.randomInt(100000, 999999).toString();
+
+    const newUser = new User({
+      email,
+      password: hashedPassword,
       verificationCode,
-      isVerified: false 
+      isVerified: false
     });
-    
     await newUser.save();
-    
-    // Send verf using sendgrid
     await sendVerificationEmail(email, verificationCode);
-    
-    res.status(201).json({ message: "User registered successfully. Please check your email for a verification code." });
+
+    res.status(201).json({ message: "User registered. Check your email for the verification code." });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -57,17 +52,13 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Invalid credentials." });
-    
-    if (!user.isVerified) {
-      return res.status(400).json({ message: "Email not verified. Please verify your email before logging in." });
-    }
-    
-    const isMatch = await compare(password, user.password);
+    if (!user.isVerified) return res.status(400).json({ message: "Email not verified." });
+
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: "Invalid credentials." });
-    
+
     const payload = { id: user._id, email: user.email };
-    const token = sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-    
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: error.message });

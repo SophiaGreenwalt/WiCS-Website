@@ -1,9 +1,8 @@
 // declarations
-const express = require('express');
-const router = express.Router();
-const authMiddleware = require('../middleware/auth');
-const Member = require('../models/Member');
-
+import { Router } from 'express';
+import authMiddleware from '../middleware/auth.js';
+import Member from '../models/Member.js';
+const router = Router();
 // save membership in protected route
 router.post('/join', authMiddleware, async (req, res) => {
   try {
@@ -18,4 +17,4 @@ router.post('/join', authMiddleware, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

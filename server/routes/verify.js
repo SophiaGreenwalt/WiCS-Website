@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const router = Router();
-import User from '../models/User';
+import User from '../models/User.js';
 
 // Endpoint to verify email 
 router.post('/verify-email', async (req, res) => {

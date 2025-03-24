@@ -1,9 +1,10 @@
-//What you type in
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true }, //unique email
-  password: { type: String, required: true } //hashed password for security purpose!
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  isVerified: { type: Boolean, default: false },
+  verificationCode: { type: String }
 });
-//exporting user 
-module.exports = mongoose.model('User', UserSchema);
+
+export default mongoose.model('User', UserSchema);
