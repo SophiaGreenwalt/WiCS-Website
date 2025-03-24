@@ -43,8 +43,24 @@
           <h2>Announcements</h2>
         </div>
 
-        <div class="announce-text">
-          <p>This is where announcements for the club will be posted.</p>
+        <!-- Announcements will be injected here -->
+        <div class="announcement-text" id="announcement-text">
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+            $(function() {
+              $.getJSON('announce.json', function(data) {
+                // Get each announcement and generate HTML
+                $.each(data.announcement, function(i, f) {
+                  var announceHtml = `
+                    <div class="announcement">
+                      <p>${f.type} <br>${f.about}</p> <br>
+                    </div>
+                  `;
+                  $('#announcement-text').append(announceHtml);
+                });
+              });
+            });
+          </script>
           <br>
         </div>
 
@@ -64,6 +80,7 @@
         <div class="event-text">
           <p>Here's some events that will be happening soon!</p>
         </div>
+        <!-- TODO: inject calendar -->
   
       </div>
 

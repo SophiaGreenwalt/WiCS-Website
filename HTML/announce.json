@@ -1,0 +1,12 @@
+{
+    "announcement": [
+      {
+        "type": "Club Elections",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      },
+      {
+        "type": "New Website",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      }
+    ]
+  }
