@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
-    <link rel="stylesheet" href="stylesignup.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -14,17 +13,14 @@
     <form action="action_page.php" method="post">
 
         <div class="explain">
-            <p>In order to view the calendar, you must register with a valid WCU email account.</p>
+            <p>Enter the code sent to your email.</p>
         </div>
       
         <div class="container">
-          <label for="uname"><b>WCU Email</b></label>
-          <input type="text" placeholder="Enter WCU Email" name="uname" required>
+          <label for="code"><b>Verification Code</b></label>
+          <input type="text" placeholder="Enter Verification Code" name="code" required>
       
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-      
-          <button type="submit">Sign up</button>
+          <button type="submit">Verify</button>
           <button type="button" class="cancelbtn">Cancel</button>
           
         </div>
