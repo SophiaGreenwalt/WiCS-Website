@@ -1,7 +1,8 @@
+/* Global */
 * {
     box-sizing: border-box;
   }
-  
+
   /* Style the body */
   body {
     font-family: Arial, Helvetica, sans-serif;
@@ -14,10 +15,48 @@
     flex-wrap: wrap;
   }
   
-  /* Sidebar/left column */
+  /* Sidebar column */
   .side {
     flex: 30%;
     padding: 20px;
+  }
+
+  .announcements {
+    background: #f0f0f0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .image_megaphone{
+    width: 100px;
+  }
+
+  .announce-head {
+    color: #6e3152;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: x-large;
+  }
+
+  .announce-text {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .upcoming-events {
+    background: #f0f0f0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .image_calendar{
+    width: 95px;
+  }
+
+  .event-head {
+    color: #6e3152;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: x-large;
+  }
+
+  .event-text {
+    font-family: "Montserrat", sans-serif;
   }
   
   /* Main column */
@@ -25,20 +64,26 @@
     flex: 70%;
     padding: 20px;
   }
-  
-  /* Footer */
-  .footer {
-    padding: 20px;
-    text-align: center;
+
+  .about-head {
+    color: #6e3152;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: x-large;
   }
   
-  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other */
+  /* When the screen is less than 700px wide, make the two columns stack on top of each other */
   @media screen and (max-width: 700px) {
     .row {
       flex-direction: column;
     }
   }
   
+  .exec-head {
+    color: #6e3152;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: x-large;
+  }
+
   .executive-profile {
     display: flex;
     align-items: center;
@@ -47,17 +92,19 @@
   }
   
   .executive-image {
-    width: 80px; /* Adjust image size */
-    height: 80px; /* Adjust image size */
-    border-radius: 50%; /* Makes the image round */
-    margin-right: 20px; /* Space between image and text */
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
   }
   
   .profile-text p {
+    background: #e0d7e5;
+    color: black;
     margin: 5px 0; /* Space between paragraphs */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
   
-  /* Responsive Design: Stack the image and text on smaller screens */
+  /* Stack the image and text on smaller screens */
   @media (max-width: 768px) {
     .executive-profile {
       flex-direction: column;
@@ -68,3 +115,9 @@
       margin-bottom: 20px; /* Space between the image and text when stacked */
     }
   }  
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+  }
