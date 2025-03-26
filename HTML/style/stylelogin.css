@@ -1,6 +1,6 @@
  /* Bordered form */
  form {
-    border: 3px solid #f1f1f1;
+    border: 3px solid white;
   }
   
   /* Full-width inputs */
@@ -20,7 +20,7 @@
   }
   
   /* Set a style for all buttons */
-  button {
+  button.log {
     background-color: rgb(151, 92, 163);
     color: white;
     padding: 14px 20px;
@@ -35,19 +35,18 @@
     opacity: 0.8;
   }
   
-  /* Extra style for the cancel button (red) */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgb(151, 92, 163);
-  }
-  
   /* Add padding to containers */
   .container {
     padding: 16px;
   }
   
   /* The "Girlfail" text */
+  span.su {
+    font-family: "Montserrat", sans-serif;
+    float: left;
+    padding-top: 16px;
+  }
+
   span.psw {
     font-family: "Montserrat", sans-serif;
     float: right;
@@ -64,3 +63,9 @@
       width: 100%;
     }
   } 
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+  }

@@ -1,6 +1,6 @@
  /* Bordered form */
  form {
-    border: 3px solid #f1f1f1;
+    border: 3px solid white;
   }
   
   /* Full-width inputs */
@@ -11,6 +11,10 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  div.explain {
     font-family: "Montserrat", sans-serif;
   }
 
@@ -38,4 +42,10 @@
   /* Add padding to containers */
   .container {
     padding: 16px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
   }
