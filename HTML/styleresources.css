@@ -51,20 +51,20 @@
 
 /* Text Formatting */
 .header h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
     margin: 0;
     text-align: center;
 }
 
-.header p {
+/* .header p {
     font-size: 1.2rem;
     font-weight: 500;
     font-family: "Montserrat", sans-serif;
     max-width: 600px;
     text-align: center;
     margin: 0;
-}
+} */
 
 /* Media Query for smaller screens */
 @media screen and (max-width: 768px) {
