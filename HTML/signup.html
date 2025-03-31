@@ -8,33 +8,60 @@
 </head>
 <body>
     <!-- Navbar -->
-  <script id="replace_with_navbar" src="nav.js"></script>
+    <script id="replace_with_navbar" src="nav.js"></script>
 
     <!-- Main Content -->
-    <form action="action_page.php" method="post">
-
+    <form id="signup-form" method="post">
         <div class="explain">
             <p>In order to view the calendar, you must register with a valid WCU email account.</p>
         </div>
       
         <div class="container">
           <label for="uname"><b>WCU Email</b></label>
-          <input type="text" placeholder="Enter WCU Email" name="uname" required>
+          <input type="text" placeholder="Enter WCU Email" name="uname" id="uname" required>
       
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
       
           <button type="submit">Sign up</button>
-          
         </div>
-      </form> 
+    </form> 
 
-<!-- Footer -->
-<div class="footer">
-    <footer>
-      <p>© 2025 Women in Computer Science Club. All rights reserved.</p>
-    </footer>  
-  </div>
+    <!-- Send to back -->
+    <script>
+      document.getElementById('signup-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('uname').value;
+        const password = document.getElementById('psw').value;
+
+        try {
+          const res = await fetch('http://localhost:3000/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            alert('Signup successful!');
+          } else {
+            alert('Error: ' + data.message);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    </script>
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer>
+          <p>© 2025 Women in Computer Science Club. All rights reserved.</p>
+        </footer>  
+    </div>
 
 </body>
 </html>
