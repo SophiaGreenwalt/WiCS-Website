@@ -9,9 +9,32 @@
     <!-- Container for Navbar -->
     <script id="replace_with_navbar" src="nav.js"></script>
     <!-- Main Content -->
-    <!-- EMBED CALENDAR HERE -->
     <h2>Events & Activities</h2>
     <p>We host a handful of events each semester. Our most popular ones are our Bootcamps. We host Bootcamps on a variety of subjects, our most recent being Python, lead by Professor Ngo. We also send members to the Grace Hopper Celebration each year! </p>
+
+    <!-- EMBED CALENDAR HERE -->
+    <script>
+      import { useEffect, useState } from "react";
+      export default function CalendarPage() {
+      const [calendarUrl, setCalendarUrl] = useState("");
+      useEffect(() => {
+        const fetchCalendar = async () => {
+          const res = await fetch("http://localhost:5000/api/calendar", {
+            credentials: "include", // if auth middleware requires session/cookie
+          });
+          const data = await res.json();
+          setCalendarUrl(data.outlookCalendarURL);
+        };
+        fetchCalendar();
+      }, []);
+      return (
+      <div>
+        <h2>WiCS Calendar</h2>
+        <a href={calendarUrl} target="_blank" rel="noopener noreferrer">
+          Open Calendar
+        </a>
+      </div>);}
+    </script>
 
     <!-- Footer -->
   <div class="footer">
