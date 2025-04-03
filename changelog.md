@@ -6,9 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- HTML folder and files MM
-- Added WiCS logo MM
-- Added exec-board JSON MM
-- Added hex codes text file MM
-- CSS for homepage MM
-- Log in/Sign up pages
+- HTML and CSS for pages
+  - Homepage MM
+  - Resources SG
+  - Calendar MM
+  - Membership SG
+- JS function to copy navbar SG
+- JS functions to handle auth MM
