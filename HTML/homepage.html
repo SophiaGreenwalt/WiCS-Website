@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="stylehomepage.css">  <!-- New external CSS file link -->
+</head>
+<body>
+  <!-- Navbar -->
+  <script id="replace_with_navbar" src="nav.js"></script>
+  <!-- Main Content -->
+  <div class="header">
+    <div class="header-content">
+      <div>
+        <h1>Women in Computer Science Club</h1>
+        <h2>West Chester University of Pennsylvania</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Side page -->
+    <div class="side">
+      <h2>Announcements</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+      <br>
+      <h2>Upcoming Events</h2>
+    </div>
+    <!-- Main page -->
+    <div class="main">
+      <h2>About the Club</h2>
+      <p>The Women in Computer Science Club is dedicated to helping all women in the computer science field succeed. We have bi-weekly meetings where we give an overview of upcoming events and open the floor for members to voice their opinions on what they want to see implemented in the near future. We host a variety of social and academic-oriented events such as Dine-and-Donate, Tech Bootcamps, Resume Workshop (Sponsored by the Career Development Center), and Guest Speakers from big companies in the area such as Vanguard and Vertex. If this sounds like a club that you are interested in joining, read more below or click the Sign Up button to join our website! </p>
+      <br>
+      <h2>Meet the Executive Board</h2>
+
+      <div id="executive-board">
+        <!-- Executive board members will be injected here -->
+      </div>
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(function() {
+          $.getJSON('roles.json', function(data) {
+            // Get each person and generate HTML for their profile
+            $.each(data.person, function(i, f) {
+              var profileHtml = `
+                <div class="executive-profile">
+                  <img src="${f.image}" class="executive-image">
+                  <div class="profile-text">
+                    <p>${f.role}</p>
+                    <p>${f.name}</p>
+                    <p>${f.about}</p>
+                  </div>
+                </div>
+              `;
+              $('#executive-board').append(profileHtml);
+            });
+          });
+        });
+      </script>
+      <br>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <footer>
+      <p>© 2025 Women in Computer Science Club. All rights reserved.</p>
+    </footer>  
+  </div>
+</body>
+</html>
