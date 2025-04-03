@@ -1,1 +1,58 @@
-/*Page Created to hold structure*/ 
+/* Imports for Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Global */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+/* Header format */
+.header {
+    padding: 50px 10%;
+    text-align: center;
+    background: #c37490;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Flexbox for centering content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 35vh; 
+    min-height: 35vh; 
+    width: 100%;
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Wrapper for content */
+.header-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
+}
+
+/* Image formatting */
+.image1, .image2 {
+    width: 275px; 
+    height: auto; 
+    margin: 0 20px; 
+}
+
+.image1 {
+    transform: scaleX(-1); /* Flip the first image */
+}
+
+/* Text Formatting */
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
