@@ -40,7 +40,7 @@
 
 /* Image formatting */
 .image1, .image2 {
-    width: 275px; 
+    width: 300px; 
     height: auto; 
     margin: 0 20px; 
 }
@@ -51,7 +51,7 @@
 
 /* Text Formatting */
 .header h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
     margin: 0;
     text-align: center;
