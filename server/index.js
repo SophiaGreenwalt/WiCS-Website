@@ -8,29 +8,41 @@ import cors from 'cors';
 // Import route files
 import authRoutes from './routes/auth.js';
 import verifyRoutes from './routes/verify.js';
-import googleCalendarRoutes from './routes/googlecalendar.js';
-import memberRoutes from './routes/members.js';
+import microsoftCalendar from './routes/microsoftCalendar.js';
 import discordRoutes from './routes/discord.js';
 import contactRoutes from './routes/contact.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+const allowedOrigins = [
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+  'http://104.201.182.59:5500',
+  'http://192.168.1.45:5500'
+];
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to database!"))
-  .catch(err => console.error("MongoDB connection error:", err));
+const corsOptions = {
+  origin: (origin, callback) => {
+    console.log("CORS origin:", origin);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed from this origin"));
+    }
+  },
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+app.use(express.json());
 
 // Mount routes
 app.use('/api/auth', authRoutes);
 app.use('/api/verify', verifyRoutes);
-app.use('/api/google-calendar', googleCalendarRoutes);
-app.use('/api/members', memberRoutes);
+app.use('/api/microsoftCalendar', microsoftCalendar);
 app.use('/api/discord', discordRoutes);
 app.use('/api/contact', contactRoutes);
 
@@ -39,5 +51,16 @@ app.get('/', (req, res) => {
   res.send("Welcome to the WiCS Club API!");
 });
 
-// Start the server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// ✅ ⬇️ ONLY connect and start server if NOT testing
+if (process.env.NODE_ENV !== 'test') {
+  mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+      console.log("Connected to database!");
+      app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+    })
+    .catch(err => console.error("MongoDB connection error:", err));
+}
+
+// ✅ So Jest can import this app without running server
+export default app;
