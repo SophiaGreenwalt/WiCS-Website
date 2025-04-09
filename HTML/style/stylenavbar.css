@@ -16,9 +16,6 @@ li, a, button{
     color:#6e3152;
     text-decoration: none;
 }
-.logo-container{
-    padding-right: 500px;
-}
 
 header{
     display: flex;
@@ -32,7 +29,16 @@ header{
     left: 0;
     background-color: #ffffff;
     width: 100%;
+}
 
+.logo-container{
+    margin-right: auto;
+}
+
+.nav-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo{
