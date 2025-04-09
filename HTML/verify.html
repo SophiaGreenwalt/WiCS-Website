@@ -11,7 +11,7 @@
   <script id="replace_with_navbar" src="nav.js"></script>
 
     <!-- Main Content -->
-    <form action="action_page.php" method="post">
+    <form action="verify-code" method="post">
 
         <div class="explain">
             <p>Enter the code sent to your email.</p>
@@ -19,12 +19,58 @@
       
         <div class="container">
           <label for="code"><b>Verification Code</b></label>
-          <input type="text" placeholder="Enter Verification Code" name="code" required>
+          <input id="code" placeholder="Enter Verification Code" name="code" required>
       
-          <button type="submit">Verify</button>
+          <button id="verifyButton">Verify</button>
           
         </div>
       </form> 
+
+    <!-- Send to back -->
+    <script>
+      // Getting the DOM elements
+      const codeInput = document.getElementById("code");
+      const verifyButton = document.getElementById("verifyButton");
+      const messageElement = document.getElementById("message");
+
+      // Function to handle code verification
+      async function handleVerify() {
+          const code = codeInput.value;
+
+          // Basic validation to check if the code is provided
+          if (!code) {
+              messageElement.textContent = "Please enter the verification code.";
+              return;
+          }
+
+          verifyButton.disabled = true; // Disable the button while processing
+          messageElement.textContent = "Verifying..."; // Show loading message
+
+          try {
+              // Send verification code to the backend
+              const response = await fetch("http://localhost:5000/verify-email", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ verificationCode: code }),
+              });
+
+              const data = await response.json();
+              messageElement.textContent = data.message;
+
+              if (response.ok) {
+                  window.location.href = "/homepage"; // Redirect after successful verification
+                  localStorage.setItem("loggedIn", "true")
+              }
+          } catch (error) {
+              messageElement.textContent = "Verification failed. Please try again.";
+          } finally {
+              verifyButton.disabled = false; // Re-enable the button after processing
+          }
+      }
+
+      // Attach event listener to the verify button
+      verifyButton.addEventListener("click", handleVerify);
+  </script>
 
 <!-- Footer -->
 <div class="footer">

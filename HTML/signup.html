@@ -37,7 +37,7 @@
         const password = document.getElementById('psw').value;
 
         try {
-          const res = await fetch('http://localhost:3000/api/auth/register', {
+          const res = await fetch('http://104.201.204.189:5000/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
@@ -46,7 +46,7 @@
           const data = await res.json();
 
           if (res.ok) {
-            alert('Signup successful!');
+            window.open("verify.html")
           } else {
             alert('Error: ' + data.message);
           }

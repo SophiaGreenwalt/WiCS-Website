@@ -30,6 +30,36 @@
           </div>
         </div>
       </form> 
+    
+    <!-- Send to back -->
+    <script>
+      console.log("Entered script function")
+      document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('uname').value;
+        const password = document.getElementById('psw').value;
+
+        try {
+          const res = await fetch('http://104.201.204.189:5000/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            window.open("homepage.html")
+          } else {
+            alert('Error: ' + data.message);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    </script>
 
 <!-- Footer -->
 <div class="footer">

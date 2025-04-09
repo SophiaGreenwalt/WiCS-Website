@@ -8,6 +8,17 @@
 <body>
     <!-- Container for Navbar -->
     <script id="replace_with_navbar" src="nav.js"></script>
+    <!-- Hide Page for Guests -->
+    <script>
+      // Check if the user is logged in
+      const isLoggedIn = localStorage.getItem("loggedIn");
+    
+      if (!isLoggedIn || isLoggedIn !== "true") {
+        // Redirect to locked.html if not logged in
+        window.location.href = "locked.html";
+      }
+    </script>
+    
     <!-- Main Content -->
     <h2>Events & Activities</h2>
     <p>We host a handful of events each semester. Our most popular ones are our Bootcamps. We host Bootcamps on a variety of subjects, our most recent being Python, lead by Professor Ngo. We also send members to the Grace Hopper Celebration each year! </p>
