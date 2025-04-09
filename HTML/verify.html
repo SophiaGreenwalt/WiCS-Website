@@ -22,6 +22,7 @@
           <input id="code" placeholder="Enter Verification Code" name="code" required>
       
           <button id="verifyButton">Verify</button>
+          <p id="message"></p>
           
         </div>
       </form> 
@@ -32,6 +33,7 @@
       const codeInput = document.getElementById("code");
       const verifyButton = document.getElementById("verifyButton");
       const messageElement = document.getElementById("message");
+      const email = localStorage.getItem("email")
 
       // Function to handle code verification
       async function handleVerify() {
@@ -48,17 +50,17 @@
 
           try {
               // Send verification code to the backend
-              const response = await fetch("http://localhost:5000/verify-email", {
+              const response = await fetch("http://104.201.205.11:5000/api/auth/verify-email", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ verificationCode: code }),
+                  body: JSON.stringify({ email, verificationCode: code }),
               });
 
               const data = await response.json();
               messageElement.textContent = data.message;
 
               if (response.ok) {
-                  window.location.href = "/homepage"; // Redirect after successful verification
+                  window.location.href = "homepage.html"; // Redirect after successful verification
                   localStorage.setItem("loggedIn", "true")
               }
           } catch (error) {
