@@ -96,3 +96,10 @@
     height: 90vh;
     border: none;
 }
+
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+  }
