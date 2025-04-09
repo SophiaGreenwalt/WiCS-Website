@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
     <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
       iframe {
         width: 100%;
         height: 600px;
@@ -14,7 +17,9 @@
 </head>
 <body>
     <!-- Container for Navbar -->
+    <div id="navbar"></div>
     <script id="replace_with_navbar" src="nav.js"></script>
+
     
     <!-- Hide Page for Guests -->
     <script>
@@ -28,14 +33,13 @@
     </script>
     
     <!-- EMBED CALENDAR HERE -->
-    <body>
       <h2>WiCS Calendar</h2>
       <iframe id="calendarIframe" src=""></iframe>
     
       <script>
         window.addEventListener("DOMContentLoaded", async () => {
           try {
-            const res = await fetch("http://localhost:5000/api/calendar", {
+            const res = await fetch("http://104.201.205.11:5000/api/calendar", {
             });
     
             const data = await res.json();
@@ -51,7 +55,6 @@
           }
         });
       </script>
-    </body>
 
     <!-- Footer -->
   <div class="footer">

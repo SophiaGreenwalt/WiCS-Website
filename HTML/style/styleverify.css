@@ -1,4 +1,6 @@
-/* Div */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 div {
     font-family: "Montserrat", sans-serif;

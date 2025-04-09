@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+ 
  /* Bordered form */
  form {
     border: 3px solid white;
