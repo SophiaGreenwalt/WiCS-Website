@@ -19,7 +19,34 @@
                     <li><a href="membership.html">Membership</a></li> <!-- link to membership.html -->
                 </ul>
             </nav>
-            <a class="cta" href="login.html"><button>Log In</button></a> <!-- link to login.html -->
+            <a class="cta" href="login.html"> <!-- link to login.html -->
+                <button id="loginBtn">Log In</button>
+            </a>
+            <button id="logoutBtn" style="display: none;">Log Out</button>
         </header>      
     </body>
+    <script>
+        const loginBtn = document.getElementById("loginBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+      
+        const isLoggedIn = localStorage.getItem("loggedIn");
+      
+        if (isLoggedIn === "true") {
+          // Hide login, show logout
+          loginBtn.style.display = "none";
+          logoutBtn.style.display = "inline-block";
+        } else {
+          // Show login, hide logout
+          loginBtn.style.display = "inline-block";
+          logoutBtn.style.display = "none";
+        }
+      
+        // Logout logic
+        logoutBtn.addEventListener("click", () => {
+          localStorage.removeItem("loggedIn");
+          // Redirect to login page
+          window.location.href = "login.html";
+        });
+      </script>
+      
 </html>

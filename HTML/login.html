@@ -51,6 +51,7 @@
 
           if (res.ok) {
             window.open("homepage.html")
+            localStorage.setItem("loggedIn", "true")
           } else {
             alert('Error: ' + data.message);
           }
