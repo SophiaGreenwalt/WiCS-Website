@@ -60,10 +60,11 @@
 .HowTo-container h2{
     font-family: "Barlow Condensed", sans-serif;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 3rem;
     color: #494c4c;
-    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     padding-left: 195px; 
 }
 
@@ -76,10 +77,10 @@
 .Bylaws-container h2{
     font-family: "Barlow Condensed", sans-serif;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 3rem;
     color: #494c4c;
-    padding: 30px;
+    padding-top: 20px;
     padding-left: 195px; 
 }
 
