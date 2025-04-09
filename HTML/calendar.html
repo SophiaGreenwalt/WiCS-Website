@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
-    <style>
-      *, *::before, *::after {
-        box-sizing: border-box;
-      }
-      iframe {
-        width: 100%;
-        height: 600px;
-        border: none;
-      }
-    </style>
+    <link rel="stylesheet" href="./style/stylecalendar.css">
 </head>
+
 <body>
     <!-- Container for Navbar -->
     <div id="navbar"></div>
     <script id="replace_with_navbar" src="nav.js"></script>
 
+    <!-- Header Section -->
+    <div class="header">
+  
+      <div class="header-content">
+
+        <img src="../images/butterfly.png" class="image1" alt="Butterfly Left">
+        <div>
+          <h1>Calendar</h1>
+        </div>
+        <img src="../images/butterfly.png" class="image2" alt="Butterfly Right">
+      </div>
+    </div>
     
     <!-- Hide Page for Guests -->
     <script>
@@ -33,7 +37,6 @@
     </script>
     
     <!-- EMBED CALENDAR HERE -->
-      <h2>WiCS Calendar</h2>
       <iframe id="calendarIframe" src=""></iframe>
     
       <script>
