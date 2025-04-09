@@ -61,7 +61,8 @@
 
               if (response.ok) {
                   window.location.href = "homepage.html"; // Redirect after successful verification
-                  localStorage.setItem("loggedIn", "true")
+                  localStorage.setItem("loggedIn", "true");
+                  localStorage.removeItem("email");
               }
           } catch (error) {
               messageElement.textContent = "Verification failed. Please try again.";

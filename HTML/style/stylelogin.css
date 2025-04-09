@@ -23,8 +23,8 @@
     font-family: "Montserrat", sans-serif;
   }
   
-  /* Set a style for all buttons */
-  button.log {
+  /* Set a style for login button */
+  button {
     background-color: rgb(151, 92, 163);
     color: white;
     padding: 14px 20px;
@@ -44,29 +44,11 @@
     padding: 16px;
   }
   
-  /* The "Girlfail" text */
+  /* Sign up link */
   span.su {
     font-family: "Montserrat", sans-serif;
-    float: left;
     padding-top: 16px;
   }
-
-  span.psw {
-    font-family: "Montserrat", sans-serif;
-    float: right;
-    padding-top: 16px;
-  }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-  } 
 
   /* Footer */
   .footer {
