@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
+    <style>
+      iframe {
+        width: 100%;
+        height: 600px;
+        border: none;
+      }
+    </style>
 </head>
 <body>
     <!-- Container for Navbar -->
     <script id="replace_with_navbar" src="nav.js"></script>
+    
     <!-- Hide Page for Guests -->
     <script>
       // Check if the user is logged in
@@ -19,33 +27,31 @@
       }
     </script>
     
-    <!-- Main Content -->
-    <h2>Events & Activities</h2>
-    <p>We host a handful of events each semester. Our most popular ones are our Bootcamps. We host Bootcamps on a variety of subjects, our most recent being Python, lead by Professor Ngo. We also send members to the Grace Hopper Celebration each year! </p>
-
     <!-- EMBED CALENDAR HERE -->
-    <script>
-      import { useEffect, useState } from "react";
-      export default function CalendarPage() {
-      const [calendarUrl, setCalendarUrl] = useState("");
-      useEffect(() => {
-        const fetchCalendar = async () => {
-          const res = await fetch("http://localhost:5000/api/calendar", {
-            credentials: "include", // if auth middleware requires session/cookie
-          });
-          const data = await res.json();
-          setCalendarUrl(data.outlookCalendarURL);
-        };
-        fetchCalendar();
-      }, []);
-      return (
-      <div>
-        <h2>WiCS Calendar</h2>
-        <a href={calendarUrl} target="_blank" rel="noopener noreferrer">
-          Open Calendar
-        </a>
-      </div>);}
-    </script>
+    <body>
+      <h2>WiCS Calendar</h2>
+      <iframe id="calendarIframe" src=""></iframe>
+    
+      <script>
+        window.addEventListener("DOMContentLoaded", async () => {
+          try {
+            const res = await fetch("http://localhost:5000/api/calendar", {
+            });
+    
+            const data = await res.json();
+    
+            const calendarUrl = data.outlookCalendarURL;
+    
+            // Set iframe src to the calendar URL
+            document.getElementById("calendarIframe").src = calendarUrl;
+    
+          } catch (error) {
+            console.error("Failed to load calendar:", error);
+            document.getElementById("calendarIframe").outerHTML = "<p>Unable to load calendar.</p>";
+          }
+        });
+      </script>
+    </body>
 
     <!-- Footer -->
   <div class="footer">
