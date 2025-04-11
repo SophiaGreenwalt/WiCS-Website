@@ -4,31 +4,31 @@
         "role": "President",
         "name": "River Gennaria",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "../images/profile"
+        "image": "../exec-images/river.png"
       },
       {
         "role": "Vice President",
         "name": "Olivia Tarsillo",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "../images/profile"
+        "image": "../images/Profile.png"
       },
       {
         "role": "Secretary",
         "name": "Sophia Greenwalt",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "../images/profile"
+        "image": "../exec-images/sophia.png"
       },
       {
         "role": "Treasurer",
         "name": "Ayza Syed",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "../images/profile"
+        "image": "../exec-images/ayza.png"
       },
       {
         "role": "Website Manager",
         "name": "TBD",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "image": "../images/profile"
+        "image": "../images/Profile.png"
       }
     ]
   }

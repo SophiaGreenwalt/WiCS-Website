@@ -30,6 +30,14 @@
   text-align: center;
 }
 
+.h1 {
+  font-size: xx-large;
+}
+
+.h2 {
+  font-size: x-small;
+}
+
 .image_butterfly_left,
 .image_butterfly_right {
     width: 350px; 
@@ -72,6 +80,8 @@
 
   .announce-text {
     font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    padding: 10px;
   }
 
   .upcoming-events {
@@ -123,19 +133,34 @@
     align-items: center;
     margin-bottom: 20px; /* Space between profiles */
     padding: 10px;
+    background: #e0d7e5;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
   
   .executive-image {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: auto;
     margin-right: 20px;
   }
   
   .profile-text p {
-    background: #e0d7e5;
+    /* background: #e0d7e5; */
     color: black;
     margin: 5px 0; /* Space between paragraphs */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); */
+  }
+
+  div.separator {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-separator {
+    width: 400px; 
+    height: auto;
   }
   
   /* Stack the image and text on smaller screens */

@@ -19,6 +19,7 @@
 
       <div class="header-text">
         <h1>Women in Computer Science Club</h1>
+        <br> 
         <h2>West Chester University of Pennsylvania</h2>
       </div>
 
@@ -116,10 +117,13 @@
                   <div class="executive-profile">
                     <img src="${f.image}" class="executive-image">
                     <div class="profile-text">
-                      <p>${f.name} <br><br>
-                      ${f.role} <br><br>
+                      <p>${f.name} <br>
+                      <i>${f.role}</i> <br><br>
                       ${f.about}</p>
                     </div>
+                  </div>
+                  <div class="separator">
+                    <img src="../images/Text-sep.png" class="text-separator">
                   </div>
                 `;
                 $('#executive-board').append(profileHtml);
